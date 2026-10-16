@@ -1,24 +1,399 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.css">
-    <title>webapp-template</title>
-  </head>
-  <body>
-      <header class="fixed inset-x-0 top-0 z-50 border-b">
-          <nav class="text-center">
-              <div>
-                 Logo Title
-              </div>
-          </nav>
-      </header>
-      <main>
-        <h1 class="text-amber-200 text-5xl">Hello vite</h1>
-        <h2 class="font-bold text-blue-700">Another part</h2>
-      </main>
-      <footer></footer>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <title>webapp-template</title>
+</head>
+
+<body class="bg-blue-100">
+  <!-- Header -->
+  <header class="z-10 py-4 bg-blue-900 sticky top-0">
+    <div class="flex max-w-7xl mx-auto justify-between">
+      <div class="flex cursor-pointer shrink-0 ms-6">
+        <svg class="text-yellow-500 size-8">
+          <use href="/src/assets/icons.svg#arroba"></use>
+        </svg>
+        <span class="ml-3 text-3xl font-semibold text-blue-200">Example page</span>
+      </div>
+
+      <button id="menu-toggle" type="button"
+        class="block text-white cursor-pointer me-10 hover:text-amber-300 md:hidden">
+        <svg class="size-6">
+          <use href="/src/assets/icons.svg#menu"></use>
+        </svg>
+      </button>
+
+      <ul class="hidden font-semibold me-10 md:flex">
+        <li class="p-1 border-b-2 border-yellow-500 me-6">
+          <a href="#" class="text-blue-200 cursor-default"> Home </a>
+        </li>
+        <li class="p-1 me-6">
+          <a href="#" class="text-white cursor-default hover:text-blue-300">
+            Tutorial
+          </a>
+        </li>
+        <li class="p-1 me-6">
+          <a href="#" class="text-white cursor-default hover:text-blue-300">
+            News
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <!-- mobile menu -->
+  <nav id="main-navigation" class="hidden w-full pt-4 bg-blue-600 sticky top-16" aria-label="Main navigation">
+    <ul class="flex flex-col font-semibold md:flex-row md:items-center md:gap-6">
+      <li>
+        <a href="/" aria-current="page"
+          class="block py-2 pl-3 text-blue-200 border-l-4 border-yellow-500 md:py-1 md:pl-0 md:border-l-0 md:border-b-2">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="/tutorial/" class="block py-2 pl-3 text-white hover:text-blue-300 md:px-0 md:py-1">
+          Tutorial
+        </a>
+      </li>
+
+      <li>
+        <a href="/news/" class="block py-2 pl-3 text-white hover:text-blue-300 md:px-0 md:py-1">
+          News
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="flex flex-col max-w-7xl pb-4 mx-auto bg-blue-100 md:flex-row">
+    <main class="flex flex-col pl-6 pr-6 pt-4 mx-auto md:w-2/3 md:pr-4">
+      <article class="
+
+        ">
+        <a href="#">
+          <img class="object-cover h-96 w-full hover:opacity-75"
+            src="/src/assets/pexels-danilo-garzofino-1558636-20035194.jpg" alt="La Paz Bolivia" />
+        </a>
+        <div class="flex flex-col p-6 pt-2 bg-white">
+          <span class="my-2 text-sm font-bold text-blue-600 border-b-2 border-yellow-500 uppercase">
+            Layout
+          </span>
+          <a href="#" class="pb-4 text-3xl font-serif font-bold hover:text-gray-700">
+            Title example
+          </a>
+          <p class="pb-3 text-sm">
+            <a href="#" class="font-semibold hover:text-gray-800">
+              Ever Vino </a>, October, 2026
+          </p>
+          <p class="pb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis
+            iaculis dui porta volutpat. In sit amet posuere magna..
+          </p>
+          <a href="#" class="flex text-xs text-blue-600 uppercase hover:text-yellow-500">
+            Continue reading
+            <svg class="ml-1 size-4">
+              <use href="/src/assets/icons.svg#right-arrow"></use>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </main>
+    <aside class="pl-6 pr-6 pt-8 md:w-1/3 md:pl-4">
+      <section>
+        <form action="" class="flex">
+          <input type="text" class="w-full px-3 py-2 text-gray-800 bg-white rounded-l-lg focus:outline-none"
+            placeholder="Search..." />
+          <button
+            class="px-2 text-center text-xl text-gray-400 bg-white rounded-r-lg focus:outline-none hover:text-gray-900">
+            <svg class="size-6">
+              <use href="/src/assets/icons.svg#search"></use>
+            </svg>
+          </button>
+        </form>
+      </section>
+      <section class="mt-8 text-white">
+        <div class="p-4 text-center bg-linear-to-b from-orange-400 to-orange-200 rounded-lg shadow-xl">
+          <h3 class="font-semibold text-lg">
+            Get the latest news & tutorials right to your inbox
+          </h3>
+          <form>
+            <input type="email" placeholder="youremail@example.com"
+              class="w-full mt-3 p-3 text-gray-800 bg-white border border-gray-400 rounded shadow focus:outline-none" />
+            <button type="submit"
+              class="w-full mt-4 p-4 font-semibold tracking-wider bg-green-600 rounded shadow uppercase hover:bg-green-500">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+      <section class="mt-8">
+        <h3 class="mb-4 pb-2 text-2xl font-semibold text-blue-600 border-b-2 border-yellow-500">
+          Categories
+        </h3>
+        <ul>
+          <li class="mb-1">
+            <a class="text-blue-900 hover:text-blue-500" href="#">Layout (23)</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-blue-900 hover:text-blue-500" href="#">Imagery (19)</a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Cards -->
+  <div class="max-w-7xl mx-auto pt-3 ps-6">
+    <h1 class="pb-4 text-3xl font-serif font-bold hover:text-gray-700">
+      Some cards
+    </h1>
+  </div>
+  <div class="grid grid-cols-1 max-w-7xl mx-auto p-6 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Card 1 -->
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-amber-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Pizza Margherita</a>
+        </div>
+        <p class="my-4 leading-tight tracking-wide">
+          Invented in Naples in honor of the first queen of Italy, the
+          Margherita pizza is the triumph of Italian cuisine in the world.
+        </p>
+        <div class="flex pt-2 text-sm text-gray-700 border-t border-gray-300 divide-x-2">
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#clock"></use>
+            </svg>
+            <p>1h 15m</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-2">
+              <use href="/src/assets/icons.svg#people"></use>
+            </svg>
+            <p>4 Servings</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#exclamation"></use>
+            </svg>
+            <p>Easy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-purple-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Another Card</a>
+        </div>
+        <div class="flex">
+          <p class="flex-2 my-4">
+            Description for another card, Here you can see another descriptive
+            text for things you want to include
+          </p>
+          <div class="flex-1 flex my-4 gap-3">
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#github"></use>
+            </svg>
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#facebook"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-green-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Another Card</a>
+        </div>
+        <div class="flex">
+          <p class="flex-2 my-4">
+            Description for another card, Here you can see another descriptive
+            text for things you want to include
+          </p>
+          <div class="flex-1 flex my-4 gap-3">
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#python"></use>
+            </svg>
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#facebook"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-red-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Pizza Margherita</a>
+        </div>
+        <p class="my-4 leading-tight tracking-wide">
+          Invented in Naples in honor of the first queen of Italy, the
+          Margherita pizza is the triumph of Italian cuisine in the world.
+        </p>
+        <div class="flex pt-2 text-sm text-gray-700 border-t border-gray-300 divide-x-2">
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#clock"></use>
+            </svg>
+            <p>1h 15m</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-2">
+              <use href="/src/assets/icons.svg#people"></use>
+            </svg>
+            <p>4 Servings</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#exclamation"></use>
+            </svg>
+            <p>Easy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-purple-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Another Card</a>
+        </div>
+        <div class="flex">
+          <p class="flex-2 my-4">
+            Description for another card, Here you can see another descriptive
+            text for things you want to include
+          </p>
+          <div class="flex-1 flex my-4 gap-3">
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#github"></use>
+            </svg>
+            <svg class="size-8 me-3">
+              <use href="/src/assets/icons.svg#blender"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overflow-hidden w-full bg-white shadow-md rounded">
+      <div class="object-cover w-full h-50 bg-amber-500"></div>
+      <div class="p-4">
+        <div class="font-bold text-lg text-gray-700 leading-snug">
+          <a href="#" class="hover:underline">Pizza Margherita</a>
+        </div>
+        <p class="my-4 leading-tight tracking-wide">
+          Invented in Naples in honor of the first queen of Italy, the
+          Margherita pizza is the triumph of Italian cuisine in the world.
+        </p>
+        <div class="flex pt-2 text-sm text-gray-700 border-t border-gray-300 divide-x-2">
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#clock"></use>
+            </svg>
+            <p>1h 15m</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-2">
+              <use href="/src/assets/icons.svg#people"></use>
+            </svg>
+            <p>4 Servings</p>
+          </div>
+          <div class="flex flex-1 text-center items-center justify-center">
+            <svg class="size-4 me-3">
+              <use href="/src/assets/icons.svg#exclamation"></use>
+            </svg>
+            <p>Easy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more cards as needed -->
+  </div>
+
+  <section class="flex flex-col max-w-7xl p-4 mx-auto bg-red-400 items-center">
+    <div class="text-center text-white">
+      <h2 class="font-bold text-3xl">Want to stay up-to-date?</h2>
+      <h3 class="text-xl">Join our mail list for hot news & new tutorials</h3>
+    </div>
+    <div>
+      <form class="flex my-4">
+        <input class="p-4 text-gray-800 bg-white rounded-l-lg focus:outline-none" placeholder="your@mail.com" />
+        <button class="p-4 font-bold tracking-wider text-white bg-green-600 rounded-r-lg uppercase hover:bg-green-500">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-blue-900">
+    <div class="flex flex-col mx-auto text-white justify-center md:flex-row">
+      <div class="p-5 border-r border-blue-800 md:w-1/3">
+        <div class="my-6 text-xl font-semibold">ABOUT US</div>
+        <p class="text-gray-400">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
+          est massa. Donec eget elementum sapien, tincidunt tempor nunc. Cras
+          sodales id ipsum at convallis.
+        </p>
+      </div>
+      <div class="p-5 text-center border-r border-blue-800 md:w-1/3">
+        <div class="my-6 text-xl font-semibold">CONTACT US</div>
+        <p class="text-gray-400">
+          Av Sucre <br />
+          El Alto, NY 123 <br />
+          Bolivia <br />
+          <strong>Phone:</strong> +591 5589 5548 <br />
+          <strong>Email:</strong> info@webcraft.com
+        </p>
+        <div class="flex space-x-4 mt-6 justify-center">
+          <button class="w-10 h-10 p-1 text-white rounded">
+            <svg class="size-8">
+              <use href="/src/assets/icons.svg#facebook"></use>
+            </svg>
+          </button>
+          <button class="w-10 h-10 p-1 text-white rounded">
+            <svg class="size-8">
+              <use href="/src/assets/icons.svg#github"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="p-5 md:w-1/3">
+        <div class="my-6 text-xl font-semibold">SAY HELLO!</div>
+        <form>
+          <input class="w-full h-10 mb-4 p-2 text-gray-600 bg-white border-b-2 border-blue-800" type="email"
+            placeholder="Your email" />
+          <textarea class="w-full h-24 mb-6 px-2 pt-2 text-gray-600 bg-white border-b-2 border-blue-800"
+            placeholder="Your message"></textarea>
+          <button class="w-full px-4 py-2 font-semibold tracking-wider bg-yellow-600 rounded hover:bg-yellow-500"
+            type="button">
+            SEND
+          </button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const optionalMenu = document.getElementById("main-navigation");
+    const menuButton = document.getElementById("menu-toggle");
+
+    menuButton.addEventListener("click", () => {
+      optionalMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+
 </html>

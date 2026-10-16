@@ -1,2 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #17191d;
+  --color-panel: #202329;
+  --color-cyan: #75e3ef;
+  --color-cyan-bright: #a0f1f7;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system;
+}
